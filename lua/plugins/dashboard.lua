@@ -1,0 +1,80 @@
+-- ── Dashboard (Snacks) ───────────────────────────────────────
+
+return {
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      quickfile = { enabled = true },
+      words = { enabled = true },
+      input = { enabled = true },
+      picker = { enabled = true },
+      terminal = { enabled = true },
+      dashboard = {
+        width = 70,
+        preset = {
+          header = table.concat({
+            "",
+            "██╗      ██████╗ ███████╗████████╗███╗   ██╗██╗   ██╗██╗███╗   ███╗",
+            "██║     ██╔═══██╗██╔════╝╚══██╔══╝████╗  ██║██║   ██║██║████╗ ████║",
+            "██║     ██║   ██║███████╗   ██║   ██╔██╗ ██║██║   ██║██║██╔████╔██║",
+            "██║     ██║   ██║╚════██║   ██║   ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║",
+            "███████╗╚██████╔╝███████║   ██║   ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║",
+            "╚══════╝ ╚═════╝ ╚══════╝   ╚═╝   ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝",
+            "",
+          }, "\n"),
+          keys = {
+            { icon = " ", key = "f", desc = "Find File", action = ":FzfLua files" },
+            { icon = " ", key = "g", desc = "Grep Text", action = ":FzfLua live_grep" },
+            { icon = " ", key = "r", desc = "Recent Files", action = ":FzfLua oldfiles" },
+            { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+            {
+              icon = " ",
+              key = "c",
+              desc = "Config",
+              action = ":lua require('fzf-lua').files({ cwd = vim.fn.stdpath('config') })",
+            },
+            { icon = "󰦛 ", key = "s", desc = "Restore Session", section = "session" },
+            { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy" },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          },
+        },
+        sections = {
+          { section = "header" },
+          { section = "keys", gap = 1, padding = 1 },
+          {
+            icon = " ",
+            title = "Recent Files",
+            section = "recent_files",
+            indent = 2,
+            padding = 1,
+            limit = 5,
+            cwd = true,
+          },
+          {
+            icon = " ",
+            title = "Projects",
+            section = "projects",
+            indent = 2,
+            padding = 1,
+            limit = 5,
+          },
+          {
+            icon = " ",
+            title = "Git Status",
+            section = "terminal",
+            enabled = function() return Snacks.git.get_root() ~= nil end,
+            cmd = "git --no-pager diff --stat -B -M -C || true",
+            height = 5,
+            padding = 1,
+            indent = 3,
+            ttl = 5 * 60,
+          },
+          { section = "startup" },
+        },
+      },
+    },
+  },
+}

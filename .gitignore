@@ -1,0 +1,10 @@
+# Plugin lock file (machine-specific)
+lazy-lock.json
+
+# Neovim swap/undo/shada
+*.swp
+*.swo
+*~
+
+# Local overrides (if any)
+lua/config/local.lua
