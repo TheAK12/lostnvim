@@ -2,7 +2,7 @@
 
 **You were looking for an IDE. You found Neovim. Now you're lost.**
 
-A from-scratch Neovim configuration built on [lazy.nvim](https://github.com/folke/lazy.nvim). No distro, no framework, no safety net — just ~65 plugins duct-taped together with Lua and mass delusion that this is somehow "simpler" than VS Code.
+A from-scratch Neovim configuration built on [lazy.nvim](https://github.com/folke/lazy.nvim). No distro, no framework, no safety net. Just ~65 plugins duct-taped together with Lua and mass delusion that this is somehow "simpler" than VS Code.
 
 ![Neovim](https://img.shields.io/badge/Neovim-0.11%2B-57A143?style=flat&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/Lua-2C2D72?style=flat&logo=lua&logoColor=white)
@@ -22,19 +22,19 @@ You are here: **All of the above, simultaneously.**
 
 ## Features
 
-- **~65 plugins** managed by lazy.nvim — each one added to fix a problem caused by the previous one
+- **~65 plugins** managed by lazy.nvim, each one added to fix a problem caused by the previous one
 - **Rose Pine (Moon)** colorscheme, because we have taste (debatable)
-- **Native LSP** for 18 languages with Neovim 0.11's `vim.lsp.config()` — no deprecated `require("lspconfig")` calls here, we live on the edge
-- **Mason** auto-installs everything — LSP servers, formatters, linters, your will to use a normal editor
+- **Native LSP** for 18 languages with Neovim 0.11's `vim.lsp.config()`. No deprecated `require("lspconfig")` calls here, we live on the edge
+- **Mason** auto-installs everything: LSP servers, formatters, linters, your will to use a normal editor
 - **Autocompletion** via blink.cmp with Copilot, because typing is for people with free time
-- **AI assistance** — GitHub Copilot + [OpenCode](https://opencode.ai), for when you want a robot to be confused by your code too
-- **Fuzzy finding** with fzf-lua — find files faster than you can remember what you named them
-- **Oil.nvim** file explorer — because netrw hurt us
-- **Git** integration — Gitsigns, Neogit, Diffview, git-blame (for pointing fingers)
-- **Debugging** with nvim-dap (Go, Python, Rust/C/C++) — `print()` debugging but fancier
-- **Testing** with Neotest (Go, Python, Jest, Rust) — watch your tests fail in style
-- **Treesitter** for syntax highlighting, textobjects, and context — rebuilt from scratch after the Great Rewrite of 2025
-- **Snacks.nvim** dashboard — the first thing you see before spending 3 hours tweaking configs instead of writing code
+- **AI assistance** with GitHub Copilot + [OpenCode](https://opencode.ai), for when you want a robot to be confused by your code too
+- **Fuzzy finding** with fzf-lua. Find files faster than you can remember what you named them
+- **Oil.nvim** file explorer, because netrw hurt us
+- **Git** integration: Gitsigns, Neogit, Diffview, git-blame (for pointing fingers)
+- **Debugging** with nvim-dap (Go, Python, Rust/C/C++). `print()` debugging but fancier
+- **Testing** with Neotest (Go, Python, Jest, Rust). Watch your tests fail in style
+- **Treesitter** for syntax highlighting, textobjects, and context. Rebuilt from scratch after the Great Rewrite of 2025
+- **Snacks.nvim** dashboard, the first thing you see before spending 3 hours tweaking configs instead of writing code
 
 ## Structure
 
@@ -92,7 +92,7 @@ Full LSP, formatting, linting, debugging, and testing support where applicable. 
 
 ## Keymaps
 
-Leader key is `Space`. Local leader is `,`. If you forget a keymap, press `Space` and wait — which-key will save you.
+Leader key is `Space`. Local leader is `,`. If you forget a keymap, press `Space` and wait. which-key will save you.
 
 ### General
 
@@ -105,7 +105,7 @@ Leader key is `Space`. Local leader is `,`. If you forget a keymap, press `Space
 | `<` / `>` | v | Indent and stay in visual mode |
 | `p` | x | Paste without yanking |
 | `Y` | n | Yank to end of line |
-| `<C-d>` / `<C-u>` | n | Scroll down / up (centered) |
+| `<C-d>` / `<C-u>` | n | Scroll down / up (smooth, via neoscroll) |
 | `<leader>a` | n | Select all |
 
 ### Navigation
@@ -242,115 +242,114 @@ Leader key is `Space`. Local leader is `,`. If you forget a keymap, press `Space
 ## Plugins
 
 <details>
-<summary>Full plugin list (~65 plugins) — yes, we counted</summary>
+<summary>Full plugin list (~65 plugins), yes we counted</summary>
 
 ### Colorscheme
-- [rose-pine/neovim](https://github.com/rose-pine/neovim) — Rose Pine (Moon variant)
+- [rose-pine/neovim](https://github.com/rose-pine/neovim): Rose Pine (Moon variant)
 
 ### UI
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) — Statusline
-- [which-key.nvim](https://github.com/folke/which-key.nvim) — Keybinding hints (because we can't remember 200 keymaps)
-- [mini.icons](https://github.com/echasnovski/mini.icons) — Icon provider
-- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) — Indent guides
-- [mini.indentscope](https://github.com/echasnovski/mini.indentscope) — Animated scope indicator
-- [nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar) — Scrollbar with diagnostic marks
-- [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors) — Inline color previews
-- [smartcolumn.nvim](https://github.com/m4xshen/smartcolumn.nvim) — Smart colorcolumn
-- [fidget.nvim](https://github.com/j-hui/fidget.nvim) — LSP progress / notifications
-- [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) — File icons
-- [snacks.nvim](https://github.com/folke/snacks.nvim) — Dashboard, input, picker, terminal
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim): Statusline
+- [which-key.nvim](https://github.com/folke/which-key.nvim): Keybinding hints (because we can't remember 200 keymaps)
+- [mini.icons](https://github.com/echasnovski/mini.icons): Icon provider
+- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim): Indent guides
+- [mini.indentscope](https://github.com/echasnovski/mini.indentscope): Animated scope indicator
+- [nvim-scrollbar](https://github.com/petertriho/nvim-scrollbar): Scrollbar with diagnostic marks
+- [nvim-highlight-colors](https://github.com/brenoprata10/nvim-highlight-colors): Inline color previews
+- [smartcolumn.nvim](https://github.com/m4xshen/smartcolumn.nvim): Smart colorcolumn
+- [fidget.nvim](https://github.com/j-hui/fidget.nvim): LSP progress / notifications
+- [snacks.nvim](https://github.com/folke/snacks.nvim): Dashboard, input, picker, terminal
 
 ### Editor
-- [nvim-autopairs](https://github.com/windwp/nvim-autopairs) — Auto bracket pairing
-- [mini.surround](https://github.com/echasnovski/mini.surround) — Surround operations
-- [mini.ai](https://github.com/echasnovski/mini.ai) — Extended text objects
-- [mini.bracketed](https://github.com/echasnovski/mini.bracketed) — Bracket navigation
-- [flash.nvim](https://github.com/folke/flash.nvim) — Jump / motion
-- [vim-matchup](https://github.com/andymass/vim-matchup) — Extended `%` matching
-- [undotree](https://github.com/mbbill/undotree) — Undo history visualizer
-- [yanky.nvim](https://github.com/gbprod/yanky.nvim) — Yank ring
-- [todo-comments.nvim](https://github.com/folke/todo-comments.nvim) — Highlighted TODO comments
-- [dial.nvim](https://github.com/monaqa/dial.nvim) — Enhanced increment / decrement
-- [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim) — Rainbow brackets
-- [refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim) — Refactoring operations
+- [nvim-autopairs](https://github.com/windwp/nvim-autopairs): Auto bracket pairing
+- [mini.surround](https://github.com/echasnovski/mini.surround): Surround operations
+- [mini.ai](https://github.com/echasnovski/mini.ai): Extended text objects
+- [mini.bracketed](https://github.com/echasnovski/mini.bracketed): Bracket navigation
+- [flash.nvim](https://github.com/folke/flash.nvim): Jump / motion
+- [vim-matchup](https://github.com/andymass/vim-matchup): Extended `%` matching
+- [undotree](https://github.com/mbbill/undotree): Undo history visualizer
+- [yanky.nvim](https://github.com/gbprod/yanky.nvim): Yank ring
+- [todo-comments.nvim](https://github.com/folke/todo-comments.nvim): Highlighted TODO comments
+- [dial.nvim](https://github.com/monaqa/dial.nvim): Enhanced increment / decrement
+- [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim): Rainbow brackets
+- [refactoring.nvim](https://github.com/ThePrimeagen/refactoring.nvim): Refactoring operations
 
 ### Completion
-- [blink.cmp](https://github.com/saghen/blink.cmp) — Autocompletion engine
-- [LuaSnip](https://github.com/L3MON4D3/LuaSnip) — Snippet engine
-- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) — Snippet collection
+- [blink.cmp](https://github.com/saghen/blink.cmp): Autocompletion engine
+- [LuaSnip](https://github.com/L3MON4D3/LuaSnip): Snippet engine
+- [friendly-snippets](https://github.com/rafamadriz/friendly-snippets): Snippet collection
 
 ### LSP & Tooling
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) — LSP server defaults (we use native `vim.lsp.config()` now, like adults)
-- [mason.nvim](https://github.com/williamboman/mason.nvim) — Tool installer
-- [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) — Mason + LSP bridge (auto-enables servers)
-- [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) — Auto-install formatters/linters
-- [conform.nvim](https://github.com/stevearc/conform.nvim) — Formatter
-- [nvim-lint](https://github.com/mfussenegger/nvim-lint) — Linter
-- [trouble.nvim](https://github.com/folke/trouble.nvim) — Diagnostics list
-- [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim) — Inline diagnostics
-- [inc-rename.nvim](https://github.com/smjonas/inc-rename.nvim) — Live rename preview
-- [actions-preview.nvim](https://github.com/aznhe21/actions-preview.nvim) — Code action preview
-- [nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations) — LSP-aware file ops
-- [garbage-day.nvim](https://github.com/zeioth/garbage-day.nvim) — Auto-stop idle LSP servers
-- [nvim-lsp-endhints](https://github.com/chrisgrieser/nvim-lsp-endhints) — End-of-line inlay hints
-- [lazydev.nvim](https://github.com/folke/lazydev.nvim) — Lua dev for Neovim config
-- [schemastore.nvim](https://github.com/b0o/schemastore.nvim) — JSON/YAML schemas
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig): LSP server defaults (we use native `vim.lsp.config()` now, like adults)
+- [mason.nvim](https://github.com/williamboman/mason.nvim): Tool installer
+- [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim): Mason + LSP bridge (auto-enables servers)
+- [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim): Auto-install formatters/linters
+- [conform.nvim](https://github.com/stevearc/conform.nvim): Formatter
+- [nvim-lint](https://github.com/mfussenegger/nvim-lint): Linter
+- [trouble.nvim](https://github.com/folke/trouble.nvim): Diagnostics list
+- [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim): Inline diagnostics
+- [inc-rename.nvim](https://github.com/smjonas/inc-rename.nvim): Live rename preview
+- [actions-preview.nvim](https://github.com/aznhe21/actions-preview.nvim): Code action preview
+- [nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations): LSP-aware file ops
+- [garbage-day.nvim](https://github.com/zeioth/garbage-day.nvim): Auto-stop idle LSP servers
+- [nvim-lsp-endhints](https://github.com/chrisgrieser/nvim-lsp-endhints): End-of-line inlay hints
+- [lazydev.nvim](https://github.com/folke/lazydev.nvim): Lua dev for Neovim config
+- [schemastore.nvim](https://github.com/b0o/schemastore.nvim): JSON/YAML schemas
 
 ### Language-specific
-- [rustaceanvim](https://github.com/mrcjkb/rustaceanvim) — Rust tooling
-- [clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim) — C/C++ extras
-- [crates.nvim](https://github.com/Saecki/crates.nvim) — Cargo.toml management
-- [gopher.nvim](https://github.com/olexsmir/gopher.nvim) — Go tooling
-- [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim) — Python venv picker
-- [vim-dadbod](https://github.com/tpope/vim-dadbod) + [UI](https://github.com/kristijanhusak/vim-dadbod-ui) — SQL/database client
-- [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) — Markdown rendering
+- [rustaceanvim](https://github.com/mrcjkb/rustaceanvim): Rust tooling
+- [clangd_extensions.nvim](https://github.com/p00f/clangd_extensions.nvim): C/C++ extras
+- [crates.nvim](https://github.com/Saecki/crates.nvim): Cargo.toml management
+- [gopher.nvim](https://github.com/olexsmir/gopher.nvim): Go tooling
+- [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim): Python venv picker
+- [vim-dadbod](https://github.com/tpope/vim-dadbod) + [UI](https://github.com/kristijanhusak/vim-dadbod-ui): SQL/database client
+- [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim): Markdown rendering
 
 ### Finder & Explorer
-- [fzf-lua](https://github.com/ibhagwan/fzf-lua) — Fuzzy finder
-- [oil.nvim](https://github.com/stevearc/oil.nvim) — File explorer
+- [fzf-lua](https://github.com/ibhagwan/fzf-lua): Fuzzy finder
+- [oil.nvim](https://github.com/stevearc/oil.nvim): File explorer
 
 ### Git
-- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) — Git signs + hunk actions
-- [neogit](https://github.com/NeogitOrg/neogit) — Magit-style Git client
-- [diffview.nvim](https://github.com/sindrets/diffview.nvim) — Diff viewer
-- [git-blame.nvim](https://github.com/f-person/git-blame.nvim) — Inline blame
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim): Git signs + hunk actions
+- [neogit](https://github.com/NeogitOrg/neogit): Magit-style Git client
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim): Diff viewer
+- [git-blame.nvim](https://github.com/f-person/git-blame.nvim): Inline blame
 
 ### Debug
-- [nvim-dap](https://github.com/mfussenegger/nvim-dap) — Debug adapter protocol
-- [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) — DAP UI
-- [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text) — Inline debug values
-- [persistent-breakpoints.nvim](https://github.com/Weissle/persistent-breakpoints.nvim) — Saved breakpoints
-- [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim) — Mason + DAP bridge
-- [nvim-dap-go](https://github.com/leoluz/nvim-dap-go) — Go debug adapter
-- [nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python) — Python debug adapter
+- [nvim-dap](https://github.com/mfussenegger/nvim-dap): Debug adapter protocol
+- [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui): DAP UI
+- [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text): Inline debug values
+- [persistent-breakpoints.nvim](https://github.com/Weissle/persistent-breakpoints.nvim): Saved breakpoints
+- [mason-nvim-dap.nvim](https://github.com/jay-babu/mason-nvim-dap.nvim): Mason + DAP bridge
+- [nvim-dap-go](https://github.com/leoluz/nvim-dap-go): Go debug adapter
+- [nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python): Python debug adapter
 
 ### Test
-- [neotest](https://github.com/nvim-neotest/neotest) — Test runner framework
-- [neotest-golang](https://github.com/fredrikaverpil/neotest-golang) — Go adapter
-- [neotest-python](https://github.com/nvim-neotest/neotest-python) — Python adapter
-- [neotest-jest](https://github.com/nvim-neotest/neotest-jest) — Jest adapter
+- [neotest](https://github.com/nvim-neotest/neotest): Test runner framework
+- [neotest-golang](https://github.com/fredrikaverpil/neotest-golang): Go adapter
+- [neotest-python](https://github.com/nvim-neotest/neotest-python): Python adapter
+- [neotest-jest](https://github.com/nvim-neotest/neotest-jest): Jest adapter
 
 ### Terminal
-- [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) — Terminal manager
-- [flatten.nvim](https://github.com/willothy/flatten.nvim) — Nested Neovim handling
+- [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim): Terminal manager
+- [flatten.nvim](https://github.com/willothy/flatten.nvim): Nested Neovim handling
 
 ### AI
-- [copilot.lua](https://github.com/zbirenbaum/copilot.lua) — GitHub Copilot
-- [blink-cmp-copilot](https://github.com/giuxtaposition/blink-cmp-copilot) — Copilot source for blink.cmp
-- [opencode.nvim](https://github.com/NickvanDyke/opencode.nvim) — OpenCode integration
+- [copilot.lua](https://github.com/zbirenbaum/copilot.lua): GitHub Copilot
+- [blink-cmp-copilot](https://github.com/giuxtaposition/blink-cmp-copilot): Copilot source for blink.cmp
+- [opencode.nvim](https://github.com/NickvanDyke/opencode.nvim): OpenCode integration
 
 ### Misc
-- [presence.nvim](https://github.com/andweeb/presence.nvim) — Discord Rich Presence (so people know you use Neovim)
-- [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim) — Smooth scrolling
-- [auto-save.nvim](https://github.com/okuuva/auto-save.nvim) — Auto-save (trust issues with `:w`)
-- [persistence.nvim](https://github.com/folke/persistence.nvim) — Session management
-- [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim) — Search and replace
-- [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens) — Search lens
-- [project.nvim](https://github.com/coffebar/project.nvim) — Project management
-- [guess-indent.nvim](https://github.com/NMAC427/guess-indent.nvim) — Auto-detect indentation
-- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) — Lua utilities
-- [nvim-nio](https://github.com/nvim-neotest/nvim-nio) — Async IO
-- [sqlite.lua](https://github.com/kkharji/sqlite.lua) — SQLite bindings
+- [presence.nvim](https://github.com/andweeb/presence.nvim): Discord Rich Presence (so people know you use Neovim)
+- [neoscroll.nvim](https://github.com/karb94/neoscroll.nvim): Smooth scrolling
+- [auto-save.nvim](https://github.com/okuuva/auto-save.nvim): Auto-save (trust issues with `:w`)
+- [persistence.nvim](https://github.com/folke/persistence.nvim): Session management
+- [grug-far.nvim](https://github.com/MagicDuck/grug-far.nvim): Search and replace
+- [nvim-hlslens](https://github.com/kevinhwang91/nvim-hlslens): Search lens
+- [project.nvim](https://github.com/coffebar/project.nvim): Project management
+- [guess-indent.nvim](https://github.com/NMAC427/guess-indent.nvim): Auto-detect indentation
+- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim): Lua utilities
+- [nvim-nio](https://github.com/nvim-neotest/nvim-nio): Async IO
+- [sqlite.lua](https://github.com/kkharji/sqlite.lua): SQLite bindings
 
 </details>
 
@@ -359,11 +358,11 @@ Leader key is `Space`. Local leader is `,`. If you forget a keymap, press `Space
 - **Neovim** >= 0.11 (we use the shiny new native LSP API)
 - **Git** >= 2.19
 - A [Nerd Font](https://www.nerdfonts.com/) (the icons won't draw themselves)
-- **ripgrep** (`rg`) — for grep
-- **fzf** — for fzf-lua
-- **fd** — for file finding
-- **node** — for some LSP servers
-- **opencode** CLI — optional, for OpenCode AI ([install](https://opencode.ai))
+- **ripgrep** (`rg`) for grep
+- **fzf** for fzf-lua
+- **fd** for file finding
+- **node** for some LSP servers
+- **opencode** CLI, optional, for OpenCode AI ([install](https://opencode.ai))
 
 ## Install
 
@@ -380,7 +379,7 @@ mv ~/.cache/nvim ~/.cache/nvim.bak
 git clone https://github.com/TheAK12/lostnvim.git ~/.config/nvim
 ```
 
-Launch Neovim. lazy.nvim will bootstrap itself, install all plugins, and Mason will install LSP servers, formatters, and linters automatically. Go make coffee — or don't, it's actually pretty fast.
+Launch Neovim. lazy.nvim will bootstrap itself, install all plugins, and Mason will install LSP servers, formatters, and linters automatically. Go make coffee, or don't, it's actually pretty fast.
 
 ```bash
 nvim
@@ -404,6 +403,6 @@ A: Welcome to the Neovim ecosystem. Run `:Lazy update`, `:MasonToolsUpdate`, and
 
 ## License
 
-Do whatever you want with it. Seriously. If this config helps you, great. If it ruins your afternoon, also great — suffering builds character.
+Do whatever you want with it. Seriously. If this config helps you, great. If it ruins your afternoon, also great. Suffering builds character.
 
 MIT, if you need something official.
