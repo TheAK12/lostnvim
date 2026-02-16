@@ -74,9 +74,7 @@ map("n", "<leader>L", "<cmd>Lazy<CR>", { desc = "Lazy" })
 -- Select all
 map("n", "<leader>a", "ggVG", { desc = "Select all" })
 
--- Keep cursor centered
-map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down (centered)" })
-map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up (centered)" })
+-- Note: <C-d>/<C-u> scroll handled by neoscroll (plugins/misc.lua)
 
 -- Don't yank on paste in visual mode
 map("x", "p", [["_dP]], { desc = "Paste without yanking" })

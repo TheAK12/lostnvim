@@ -84,7 +84,7 @@ return {
         { "<leader>gf", group = "File history" },
         { "<leader>gh", group = "Hunks" },
         { "<leader>l", group = "LSP" },
-        { "<leader>o", group = "AI/OpenCode" },
+        { "<leader>O", group = "AI/OpenCode" },
         { "<leader>q", group = "Quit/Session" },
         { "<leader>s", group = "Search/Replace" },
         { "<leader>t", group = "Test/Terminal" },
@@ -249,7 +249,4 @@ return {
       end
     end,
   },
-
-  -- ── Web devicons ─────────────────────────────────────────
-  { "nvim-tree/nvim-web-devicons", lazy = true },
 }

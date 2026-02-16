@@ -33,10 +33,9 @@ return {
 
   -- ── OpenCode ─────────────────────────────────────────────
   {
-    "nickjvandyke/opencode.nvim",
+    "NickvanDyke/opencode.nvim",
     dependencies = {
-      -- Required for ask(), select(), and snacks provider
-      { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+      { "folke/snacks.nvim", opts = { input = { enabled = true }, picker = { enabled = true }, terminal = { enabled = true } } },
     },
     config = function()
       ---@type opencode.Opts
@@ -45,21 +44,24 @@ return {
       -- Required for auto-reload when opencode edits files
       vim.o.autoread = true
 
-      -- Toggle opencode terminal
-      vim.keymap.set({ "n", "t" }, "<C-.>", function() require("opencode").toggle() end, { desc = "Toggle OpenCode" })
+      local oc = require("opencode")
+      local prefix = "<Leader>O"
 
-      -- Ask opencode (with context)
-      vim.keymap.set({ "n", "x" }, "<leader>oa", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask OpenCode" })
+      -- Normal mode
+      vim.keymap.set({ "n", "t" }, "<C-.>", oc.toggle, { desc = "Toggle OpenCode" })
+      vim.keymap.set("n", prefix .. "t", oc.toggle, { desc = "OpenCode toggle embedded" })
+      vim.keymap.set("n", prefix .. "a", function() oc.ask("@this: ", { submit = true }) end, { desc = "OpenCode ask about this" })
+      vim.keymap.set("n", prefix .. "+", function() oc.prompt("@buffer", { append = true }) end, { desc = "OpenCode add buffer to prompt" })
+      vim.keymap.set("n", prefix .. "e", function() oc.prompt("Explain @this and its context", { submit = true }) end, { desc = "OpenCode explain this code" })
+      vim.keymap.set("n", prefix .. "n", function() oc.command("session.new") end, { desc = "OpenCode new session" })
+      vim.keymap.set("n", prefix .. "s", oc.select, { desc = "OpenCode select prompt" })
+      vim.keymap.set("n", "<S-C-u>", function() oc.command("session.half.page.up") end, { desc = "OpenCode messages half page up" })
+      vim.keymap.set("n", "<S-C-d>", function() oc.command("session.half.page.down") end, { desc = "OpenCode messages half page down" })
 
-      -- Open action picker
-      vim.keymap.set({ "n", "x" }, "<leader>os", function() require("opencode").select() end, { desc = "OpenCode select action" })
-
-      -- Operator: add range to opencode prompt
-      vim.keymap.set({ "n", "x" }, "<leader>oo", function() return require("opencode").operator("@this ") end, { desc = "OpenCode operator", expr = true })
-
-      -- Scroll opencode session
-      vim.keymap.set("n", "<leader>ou", function() require("opencode").command("session.half.page.up") end, { desc = "Scroll OpenCode up" })
-      vim.keymap.set("n", "<leader>od", function() require("opencode").command("session.half.page.down") end, { desc = "Scroll OpenCode down" })
+      -- Visual mode
+      vim.keymap.set("v", prefix .. "a", function() oc.ask("@this: ", { submit = true }) end, { desc = "OpenCode ask about selection" })
+      vim.keymap.set("v", prefix .. "+", function() oc.prompt("@this") end, { desc = "OpenCode add selection to prompt" })
+      vim.keymap.set("v", prefix .. "s", oc.select, { desc = "OpenCode select prompt" })
     end,
   },
 }

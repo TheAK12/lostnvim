@@ -213,10 +213,16 @@ Leader key is `Space`. Local leader is `,`. If you forget a keymap, press `Space
 | `<C-l>` | i | Accept Copilot suggestion |
 | `<M-]>` / `<M-[>` | i | Next / previous suggestion |
 | `<C-]>` | i | Dismiss suggestion |
-| `<C-.>` | n, t | Toggle OpenCode terminal |
-| `<leader>oa` | n, x | Ask OpenCode |
-| `<leader>os` | n, x | OpenCode action picker |
-| `<leader>oo` | n, x | OpenCode operator |
+| `<C-.>` | n, t | Toggle OpenCode |
+| `<leader>Ot` | n | Toggle OpenCode embedded |
+| `<leader>Oa` | n, v | Ask OpenCode about this / selection |
+| `<leader>O+` | n | Add buffer to prompt |
+| `<leader>O+` | v | Add selection to prompt |
+| `<leader>Oe` | n | Explain this code |
+| `<leader>On` | n | New OpenCode session |
+| `<leader>Os` | n, v | OpenCode select prompt |
+| `<S-C-u>` | n | OpenCode messages half page up |
+| `<S-C-d>` | n | OpenCode messages half page down |
 
 ### Other
 
@@ -331,7 +337,7 @@ Leader key is `Space`. Local leader is `,`. If you forget a keymap, press `Space
 ### AI
 - [copilot.lua](https://github.com/zbirenbaum/copilot.lua) — GitHub Copilot
 - [blink-cmp-copilot](https://github.com/giuxtaposition/blink-cmp-copilot) — Copilot source for blink.cmp
-- [opencode.nvim](https://github.com/nickjvandyke/opencode.nvim) — OpenCode integration
+- [opencode.nvim](https://github.com/NickvanDyke/opencode.nvim) — OpenCode integration
 
 ### Misc
 - [presence.nvim](https://github.com/andweeb/presence.nvim) — Discord Rich Presence (so people know you use Neovim)
